@@ -9,7 +9,9 @@ A collection of fast, privacy-first developer utility tools — built entirely w
 
 ## 🔗 Live Demo
 
-[Add your deployed link here once you deploy]
+## 🔗 Live Demo
+
+**[project-atlas-one-rust.vercel.app](https://project-atlas-one-rust.vercel.app/)**
 
 ## 📖 Table of Contents
 
