@@ -1,12 +1,11 @@
 import "./style.css";
 import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
+import { Hero, setupHeroDemo } from "./components/Hero";
 import { Features } from "./components/Features";
 import { ToolCard } from "./components/ToolCard";
 import { JsonFormatter, setupJsonFormatter } from "./pages/JsonFormatter";
 import { UuidGenerator ,setupUuidGenerator } from "./pages/UuidGenerator";
-import { SecretScanner, setupSecretScanner } from "./pages/SecretScanner";
-
+import { SecretScanner, setupSecretScanner } from "./pages/SecretScanner"; 
 const app = document.querySelector("#app");
 
 function renderHome() {
@@ -26,6 +25,7 @@ ${ToolCard("JSON Formatter", "Format and validate messy JSON in one click.", "#j
 ${ToolCard("Secret Scanner", "Detect accidentally exposed API keys, passwords, and credentials in your code.", "#secret-scanner", "🔒", "linear-gradient(135deg,#dc2626,#991b1b)")}
     </main>
   `;
+  setupHeroDemo();
 }
 
 function router() {

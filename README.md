@@ -34,10 +34,12 @@ A collection of fast, privacy-first developer utility tools — built entirely w
 | ⏰ Timestamp Converter | 🚧 Coming Soon | Convert between Unix timestamps and readable dates |
 
 ## 💻 Tech Stack
+## 💻 Tech Stack
 
-- **TypeScript** — type-safe logic, no `any`-driven chaos
-- **Vite** — fast dev server and build tool
+- **HTML5** — single-page app entry point (`index.html`), fully rendered via TypeScript
+- **TypeScript** — type-safe logic, compiles down to plain JavaScript, no `any`-driven chaos
 - **Vanilla CSS** — no framework, full control over design
+- **Vite** — fast dev server and build tool
 
 ## 🚀 Getting Started
 
