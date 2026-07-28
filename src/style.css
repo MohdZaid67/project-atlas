@@ -507,3 +507,31 @@ Tool1 JSON formate styling */
   color: #ef4444;
   border: 1px solid #ef4444;
 }
+
+
+
+
+/* Tool card button */
+.tool-btn {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  color: white;
+
+  padding: 12px;
+  border-radius: 8px;
+
+  font-weight: 600;
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: .3s;
+}
+
+.tool-btn:hover {
+  background: rgba(59,130,246,.15);
+  border-color: rgba(59,130,246,.4);
+}
