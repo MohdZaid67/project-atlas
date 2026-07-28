@@ -5,6 +5,7 @@ import { Features } from "./components/Features";
 import { ToolCard } from "./components/ToolCard";
 import { JsonFormatter, setupJsonFormatter } from "./pages/JsonFormatter";
 import { UuidGenerator ,setupUuidGenerator } from "./pages/UuidGenerator";
+import { SecretScanner, setupSecretScanner } from "./pages/SecretScanner";
 
 const app = document.querySelector("#app");
 
@@ -22,6 +23,7 @@ function renderHome() {
       ${ToolCard("Markdown Preview", "Write markdown on one side, see the live rendered output on the other.", "#markdown-preview", "📝", "linear-gradient(135deg,#f59e0b,#eab308)")}
       ${ToolCard("Timestamp Converter", "Convert between Unix timestamps and human-readable dates instantly.", "#timestamp-converter", "⏰", "linear-gradient(135deg,#3b82f6,#06b6d4)")}
       ${ToolCard("JSON Formatter", "Format and validate messy JSON in one click.", "#json-formatter", "🧾", "linear-gradient(135deg,#14b8a6,#0d9488)")}
+      ${ToolCard("Secret Scanner", "Detect accidentally exposed API keys, passwords, and credentials in your code.", "#secret-scanner", "🔒", "linear-gradient(135deg,#dc2626,#991b1b)")}
     </main>
   `;
 }
@@ -36,6 +38,9 @@ function router() {
   } else if (hash === "#uuid-generator") {
     app!.innerHTML = `${Navbar()}${UuidGenerator()}`;
     setupUuidGenerator();
+  } else if (hash === "#secret-scanner") {
+    app!.innerHTML = `${Navbar()}${SecretScanner()}`;
+    setupSecretScanner();
   } else {
     renderHome();
   }
