@@ -331,7 +331,11 @@ body{
   height:48px;
   border-radius:12px;
   margin-bottom:20px;
-  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
 }
 
 .tool-card h3{
@@ -421,6 +425,24 @@ Tool1 JSON formate styling */
   font-weight:600;
   cursor:pointer;
   margin-bottom:20px;
+}
+
+#minifyBtn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.2);
+  color:white;
+  padding:12px 28px;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  margin-bottom:20px;
+  margin-left:12px;
+  transition:.3s;
+}
+
+#minifyBtn:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.4);
 }
 
 
