@@ -62,6 +62,30 @@ src/
 ├── style.css # Global styles
 └── main.ts # Router + entry point
 
+
+## 📸 Screenshots
+
+### Landing Page
+![Landing Page](screenshots/landing%20page.png)
+
+### Toolkit Dashboard
+![Toolkit Grid 1](screenshots/toolkit%20grid%201.png)
+![Toolkit Grid 2](screenshots/toolkit%20grid%202.png)
+![Toolkit Grid 3](screenshots/toolkit%20grid%203.png)
+
+### Features Overview
+![Features](screenshots/features%20overview.png)
+
+### UUID Generator
+![UUID Generator](screenshots/uuid%20generator.png)
+
+### JSON Formatter
+![JSON Formatter](screenshots/json%20formatter.png)
+
+### Secret Scanner
+![Secret Scanner](screenshots/secret%20scanner.png)
+
+
 ## 📌 Why I Built This
 
 Before this, I had built a few smaller projects — a currency converter, tic-tac-toe, a portfolio site, and an Amazon frontend clone. Those helped me get comfortable with the basics, but I wanted to build something that felt like a real, usable product instead of just a practice exercise.
