@@ -66,24 +66,24 @@ src/
 ## 📸 Screenshots
 
 ### Landing Page
-![Landing Page](screenshots/landing%20page.png)
+![Landing page of Project Atlas showing navigation, hero section, and tool cards in a clean browser-based developer dashboard](screenshots/landing%20page.png)
 
 ### Toolkit Dashboard
-![Toolkit Grid 1](screenshots/toolkit%20grid%201.png)
-![Toolkit Grid 2](screenshots/toolkit%20grid%202.png)
-![Toolkit Grid 3](screenshots/toolkit%20grid%203.png)
+![Dashboard grid displaying utility tool cards, status badges, and a sidebar menu in a minimal interface](screenshots/toolkit%20grid%201.png)
+![Second dashboard view showing additional project utility cards and a responsive layout in the app interface](screenshots/toolkit%20grid%202.png)
+![Third toolkit preview with multiple tool cards, a top navigation bar, and a grid layout for developer utilities](screenshots/toolkit%20grid%203.png)
 
 ### Features Overview
-![Features](screenshots/features%20overview.png)
+![Features overview section showing benefits list and quick access cards within the Project Atlas interface](screenshots/features%20overview.png)
 
 ### UUID Generator
-![UUID Generator](screenshots/uuid%20generator.png)
+![UUID generator screen showing identifier creation controls and generated UUID output area](screenshots/uuid%20genrator.png)
 
 ### JSON Formatter
-![JSON Formatter](screenshots/json%20formatter.png)
+![JSON formatter tool interface displaying a code editor area, validation status, and formatting controls](screenshots/json%20formatter.png)
 
 ### Secret Scanner
-![Secret Scanner](screenshots/secret%20scanner.png)
+![Secret scanner view showing code analysis results, detected pattern highlights, and scan controls](screenshots/secret%20scanner.png)
 
 
 ## 📌 Why I Built This
