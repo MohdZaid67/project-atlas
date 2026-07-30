@@ -32,6 +32,8 @@ export function JsonFormatter() {
             readonly
           ></textarea>
 
+          <button id="copyBtn" class="copy-btn" style="display:none;">Copy</button>
+
           <!-- Status Message (currently empty) -->
           <p id="jsonStatus" class="status-message"></p>
 
@@ -56,91 +58,93 @@ export function setupJsonFormatter() {
   const minifyButton =
     document.getElementById("minifyBtn") as HTMLButtonElement;
 
+  const copyButton =
+    document.getElementById("copyBtn") as HTMLButtonElement;
+
   const status =
     document.getElementById("jsonStatus") as HTMLParagraphElement;
 
-  // Format JSON
-  button.addEventListener("click", () => {
+  // Extracts a line number from a JSON.parse error message, if present.
+  // V8 (Chrome/Node) errors look like: "Unexpected token } in JSON at position 42"
+  function getErrorDetail(error: unknown, rawInput: string): string {
+    if (!(error instanceof Error)) return "Invalid JSON.";
 
-    // Check if input is empty
+    const positionMatch = error.message.match(/position (\d+)/);
+
+    if (positionMatch) {
+      const position = parseInt(positionMatch[1], 10);
+      const upToError = rawInput.slice(0, position);
+      const line = upToError.split("\n").length;
+      const lastNewline = upToError.lastIndexOf("\n");
+      const column = position - lastNewline;
+
+      return `${error.message} (Line ${line}, Column ${column})`;
+    }
+
+    return error.message;
+  }
+
+  function setStatus(message: string, type: "success" | "warning" | "error") {
+    status.textContent = message;
+    status.className = `status-message ${type}`;
+  }
+
+  // Shared logic for both Format and Minify — avoids duplicating try/catch twice
+  function processJson(mode: "format" | "minify") {
+
     if (!input.value.trim()) {
       output.value = "";
-      status.textContent = "⚠️ Please enter JSON.";
-      status.className = "status-message warning";
+      copyButton.style.display = "none";
+      setStatus("⚠️ Please enter JSON.", "warning");
       return;
     }
 
     try {
-
-      // Convert string into JSON object
       const parsed = JSON.parse(input.value);
+      const result = mode === "format"
+        ? JSON.stringify(parsed, null, 2)
+        : JSON.stringify(parsed);
 
-      // Convert object into formatted JSON
-      const formatted = JSON.stringify(parsed, null, 2);
+      output.value = result;
+      copyButton.style.display = "inline-block";
 
-      // Display formatted JSON
-      output.value = formatted;
-
-      // Success message
-      status.textContent = "✅ JSON formatted successfully.";
-      status.className = "status-message success";
+      setStatus(
+        mode === "format"
+          ? "✅ JSON formatted successfully."
+          : "✅ JSON minified successfully.",
+        "success"
+      );
 
     } catch (error) {
-
       output.value = "";
-
-      if (error instanceof Error) {
-        status.textContent = `❌ ${error.message}`;
-        status.className = "status-message error";
-      } else {
-        status.textContent = "❌ Invalid JSON.";
-        status.className = "status-message error";
-      }
-
+      copyButton.style.display = "none";
+      setStatus(`❌ ${getErrorDetail(error, input.value)}`, "error");
     }
+  }
 
+  button.addEventListener("click", () => processJson("format"));
+  minifyButton.addEventListener("click", () => processJson("minify"));
+
+  // Copy result to clipboard
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(output.value);
+      const originalText = copyButton.textContent;
+      copyButton.textContent = "Copied!";
+      setTimeout(() => {
+        copyButton.textContent = originalText;
+      }, 1500);
+    } catch {
+      setStatus("❌ Could not copy to clipboard.", "error");
+    }
   });
 
-  // Minify JSON
-  minifyButton.addEventListener("click", () => {
-
-    // Check if input is empty
-    if (!input.value.trim()) {
-      output.value = "";
-      status.textContent = "⚠️ Please enter JSON.";
-      status.className = "status-message warning";
-      return;
+  // Keyboard shortcut: Ctrl+Enter (or Cmd+Enter on Mac) triggers Format
+  input.addEventListener("keydown", (e: KeyboardEvent) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+      e.preventDefault();
+      processJson("format");
     }
-
-    try {
-
-      // Convert string into JSON object
-      const parsed = JSON.parse(input.value);
-
-      // Convert object into minified JSON
-      const minified = JSON.stringify(parsed);
-
-      // Display minified JSON
-      output.value = minified;
-
-      // Success message
-      status.textContent = "✅ JSON minified successfully.";
-      status.className = "status-message success";
-
-    } catch (error) {
-
-      output.value = "";
-
-      if (error instanceof Error) {
-        status.textContent = `❌ ${error.message}`;
-        status.className = "status-message error";
-      } else {
-        status.textContent = "❌ Invalid JSON.";
-        status.className = "status-message error";
-      }
-
-    }
-
   });
 
 }
