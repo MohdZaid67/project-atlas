@@ -1,3 +1,45 @@
+export function JsonFormatter() {
+  return `
+    <section class="tool-page">
+      <a href="#" class="back-link">← Back to Home</a>
+
+      <h2>JSON Formatter</h2>
+
+      <div class="tool-body">
+
+        <div class="io-block">
+          <label for="jsonInput">Paste JSON</label>
+
+          <textarea
+            id="jsonInput"
+            placeholder='{"name":"Ali","age":22}'
+          ></textarea>
+        </div>
+
+        <div class="action-buttons">
+          <button id="formatBtn">Format</button>
+          <button id="minifyBtn">Minify</button>
+        </div>
+
+        <div class="io-block">
+          <label for="jsonOutput">Formatted Output</label>
+
+          <textarea
+            id="jsonOutput"
+            readonly
+          ></textarea>
+
+          <button id="copyBtn" class="copy-btn" style="display:none;">Copy</button>
+
+          <p id="jsonStatus" class="status-message"></p>
+
+        </div>
+
+      </div>
+    </section>
+  `;
+}
+
 export function setupJsonFormatter() {
 
   const input =
@@ -18,7 +60,6 @@ export function setupJsonFormatter() {
   const status =
     document.getElementById("jsonStatus") as HTMLParagraphElement;
 
-  // Format JSON
   button.addEventListener("click", () => {
 
     if (!input.value.trim()) {
@@ -52,7 +93,6 @@ export function setupJsonFormatter() {
     }
   });
 
-  // Minify JSON
   minifyButton.addEventListener("click", () => {
 
     if (!input.value.trim()) {
@@ -86,7 +126,6 @@ export function setupJsonFormatter() {
     }
   });
 
-  // Copy result to clipboard
   copyButton.addEventListener("click", () => {
     navigator.clipboard.writeText(output.value);
     copyButton.textContent = "Copied!";
