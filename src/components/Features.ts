@@ -16,7 +16,7 @@ export function Features() {
         <div class="feature-card">
           <div class="feature-icon"></div>
           <h3>Secure by Design</h3>
-          <p>Your data stays encrypted and private, always under your control.</p>
+          <p>Runs Entirely in Your Browser.</p>
         </div>
 
         <div class="feature-card">
