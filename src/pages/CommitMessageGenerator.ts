@@ -1,33 +1,52 @@
-
+import { generateCommitMessage } from "../services/groq";
 
 export function CommitMessageGenerator() {
   return `
     <section class="tool-page">
-      <a href="#" class="back-link">← Back to Home</a>
 
-      <h2>Commit Message Generator</h2>
+      <a href="#" class="back-link">
+        ← Back to Home
+      </a>
+
+      <h2>AI Commit Message Generator</h2>
 
       <p class="tool-subtitle">
-        Describe what you changed, and get a proper commit message suggestion.
+        Describe your changes and let AI generate a professional Git commit message.
       </p>
 
       <div class="io-block">
-        <label for="changeInput">What did you change?</label>
+
+        <label for="changeInput">
+          What did you change?
+        </label>
 
         <textarea
           id="changeInput"
-          placeholder="e.g. added a copy button to the JSON formatter"
+          placeholder="Example:
+Added dark mode
+Fixed login bug
+Improved navbar animation"
         ></textarea>
+
       </div>
 
-      <button id="generateBtn" class="tool-primary-btn">
-        Generate Commit Message
+      <button
+        id="generateBtn"
+        class="tool-primary-btn"
+      >
+        🤖 Generate with AI
       </button>
 
       <div class="io-block">
-        <label for="messageOutput">Suggested Message</label>
 
-        <textarea id="messageOutput" readonly></textarea>
+        <label for="messageOutput">
+          AI Generated Commit Message
+        </label>
+
+        <textarea
+          id="messageOutput"
+          readonly
+        ></textarea>
 
         <button
           id="copyBtn"
@@ -36,9 +55,14 @@ export function CommitMessageGenerator() {
         >
           Copy
         </button>
+
       </div>
 
-      <p id="statusMsg" class="status-message"></p>
+      <p
+        id="statusMsg"
+        class="status-message"
+      ></p>
+
     </section>
   `;
 }
@@ -51,81 +75,55 @@ export function setupCommitMessageGenerator() {
   const status = document.getElementById("statusMsg") as HTMLParagraphElement;
 
   generateBtn.addEventListener("click", async () => {
-    const prompt = input.value.trim();
+    const userText = input.value.trim();
 
-    if (!prompt) {
+    if (userText === "") {
       status.textContent = "⚠️ Please describe your changes.";
       status.className = "status-message warning";
       return;
     }
 
-    generateBtn.disabled = true;
-    generateBtn.textContent = "Generating...";
-
-    output.value = "";
-    copyBtn.style.display = "none";
-    status.textContent = "";
-
     try {
-      const aiClient = (globalThis as any).ai;
+      generateBtn.disabled = true;
+      generateBtn.textContent = "Generating...";
 
-      if (!aiClient?.models?.generateContent) {
-        throw new Error("AI API is not available in this browser environment.");
-      }
+      output.value = "";
+      copyBtn.style.display = "none";
 
-      const result = await aiClient.models.generateContent({
-        model: "gemini-2.0-flash",
-        contents: `Generate ONE professional Conventional Commit message.
+      status.textContent = "🤖 AI is generating your commit message...";
+      status.className = "status-message";
 
-Rules:
-- Return ONLY the commit message.
-- Use Conventional Commits.
-- No explanation.
-- No quotes.
+     const aiMessage = await generateCommitMessage(userText);
 
-Examples:
-feat: add login page
-fix: resolve JSON parsing bug
-refactor: improve navbar structure
+output.value = aiMessage;
 
-Change:
-${prompt}`,
-      });
+copyBtn.style.display = "inline-block";
 
-      const message = result.text?.trim();
+status.textContent = "✅ AI commit message generated successfully!";
+status.className = "status-message success";
 
-      if (!message) {
-        throw new Error("Gemini returned an empty response.");
-      }
-
-      output.value = message;
-
-      copyBtn.style.display = "inline-block";
-
-      status.textContent = "✅ Commit message generated.";
-      status.className = "status-message success";
     } catch (error) {
       console.error(error);
 
-      status.textContent =
-        error instanceof Error
-          ? `❌ ${error.message}`
-          : "❌ Something went wrong.";
-
-      status.className = "status-message error";
+      status.textContent = "❌ Something went wrong.";
+      status.className = "status-message warning";
     } finally {
       generateBtn.disabled = false;
-      generateBtn.textContent = "Generate Commit Message";
+      generateBtn.textContent = "🤖 Generate with AI";
     }
   });
 
   copyBtn.addEventListener("click", async () => {
-    await navigator.clipboard.writeText(output.value);
+    try {
+      await navigator.clipboard.writeText(output.value);
 
-    copyBtn.textContent = "Copied!";
+      copyBtn.textContent = "Copied!";
 
-    setTimeout(() => {
-      copyBtn.textContent = "Copy";
-    }, 1500);
+      setTimeout(() => {
+        copyBtn.textContent = "Copy";
+      }, 1500);
+    } catch (error) {
+      console.error(error);
+    }
   });
 }
