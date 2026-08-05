@@ -742,3 +742,45 @@ Tool1 JSON formate styling */
 .copy-btn:hover {
   background: #0f172a;
 }
+
+
+
+.file-upload-label {
+  display: inline-block;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#fileInput {
+  display: block;
+  width: 100%;
+  color: #94a3b8;
+  font-size: 13px;
+  padding: 10px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+#fileInput::file-selector-button {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: .3s;
+}
+
+#fileInput::file-selector-button:hover {
+  background: rgba(59,130,246,.15);
+  border-color: rgba(59,130,246,.4);
+}
