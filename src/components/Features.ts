@@ -1,3 +1,4 @@
+
 export function Features() {
   return `
     <section class="features">
@@ -8,25 +9,25 @@ export function Features() {
 
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon"></div>
+          <div class="feature-icon">⚡</div>
           <h3>Lightning Fast</h3>
           <p>Built for speed — every tool loads instantly, no lag, no delays.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon"></div>
+          <div class="feature-icon">✓</div>
           <h3>Secure by Design</h3>
           <p>Runs Entirely in Your Browser.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon"></div>
+          <div class="feature-icon">▦</div>
           <h3>Unified Workspace</h3>
           <p>Stop switching tabs — every tool lives in one clean dashboard.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon"></div>
+          <div class="feature-icon">⚙</div>
           <h3>Fully Customizable</h3>
           <p>Adapt the toolkit to your workflow, not the other way around.</p>
         </div>

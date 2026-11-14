@@ -215,7 +215,7 @@ body{
 
 /* **features section** */
 .features{
-  padding:100px 60px;
+  padding:80px 60px 40px;
   max-width:1400px;
   margin:0 auto;
 }
@@ -239,7 +239,7 @@ body{
 .features-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:28px;
+  gap:24px;
 }
 
 .feature-card{
@@ -297,6 +297,7 @@ body{
 }
 
 
+
 /* Toolcontainer */
 
 .tools-container{
@@ -304,10 +305,11 @@ body{
   grid-template-columns:repeat(3,1fr);
   gap:28px;
 
-  padding:60px;
+  padding:32px 60px 60px;
   max-width:1400px;
   margin:0 auto;
 }
+
 
 .tool-card{
   background:rgba(255,255,255,.03);
@@ -783,4 +785,586 @@ Tool1 JSON formate styling */
 #fileInput::file-selector-button:hover {
   background: rgba(59,130,246,.15);
   border-color: rgba(59,130,246,.4);
+}
+
+
+/* =========================================
+   PROJECT ATLAS - WARM NEUTRAL THEME
+   ========================================= */
+
+:root {
+  --bg-main: #F7F0F5;
+  --bg-secondary: #DECBB7;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #433633;
+
+  --primary: #5C5552;
+  --primary-hover: #433633;
+
+  --text-main: #433633;
+  --text-secondary: #8F857D;
+
+  --border: #DECBB7;
+  --white: #FFFFFF;
+}
+
+/* GLOBAL */
+
+body {
+  background: var(--bg-main) !important;
+  color: var(--text-main) !important;
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-main);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+/* NAVBAR */
+
+.navbar {
+  background: rgba(247, 240, 245, 0.95) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.nav-left h2 {
+  color: var(--text-main);
+}
+
+.nav-center a,
+.nav-right a {
+  color: var(--text-main) !important;
+}
+
+.nav-center a:hover {
+  color: var(--primary) !important;
+}
+
+.nav-right a {
+  border-color: var(--border) !important;
+}
+
+.nav-right a:hover {
+  background: var(--bg-secondary) !important;
+}
+
+/* LOGO */
+
+.logo {
+  background: var(--primary) !important;
+}
+
+/* HERO SECTION */
+
+.hero-content h1 {
+  color: var(--text-main);
+}
+
+.hero-content h1 span {
+  background: none !important;
+  -webkit-text-fill-color: var(--primary) !important;
+}
+
+.hero-content p {
+  color: var(--text-secondary) !important;
+}
+
+/* BUTTONS */
+
+.btn-primary,
+.tool-primary-btn,
+#formatBtn {
+  background: var(--primary) !important;
+  color: var(--white) !important;
+  border: 1px solid var(--primary) !important;
+}
+
+.btn-primary:hover,
+.tool-primary-btn:hover,
+#formatBtn:hover {
+  background: var(--primary-hover) !important;
+}
+
+.btn-secondary {
+  color: var(--text-main) !important;
+  border-color: var(--border) !important;
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary) !important;
+}
+
+/* FEATURES */
+
+.feature-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.feature-card:hover {
+  border-color: var(--primary) !important;
+}
+
+.feature-icon {
+  background: var(--bg-secondary) !important;
+}
+
+/* TOOL CARDS */
+
+.tool-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 4px 15px rgba(67, 54, 51, 0.04);
+}
+
+.tool-card:hover {
+  border-color: var(--primary) !important;
+  box-shadow: 0 10px 25px rgba(67, 54, 51, 0.10);
+}
+
+.tool-card h3 {
+  color: var(--text-main);
+}
+
+.tool-card p {
+  color: var(--text-secondary) !important;
+}
+
+
+.tool-icon {
+  background: var(--bg-secondary) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-card button,
+.tool-btn {
+  background: var(--bg-main) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.tool-card button:hover,
+.tool-btn:hover {
+  background: var(--bg-secondary) !important;
+  border-color: var(--primary) !important;
+}
+
+/* TOOL PAGES */
+
+.tool-page h2 {
+  color: var(--text-main);
+}
+
+.back-link {
+  color: var(--text-secondary) !important;
+}
+
+.tool-subtitle,
+.io-block label {
+  color: var(--text-secondary) !important;
+}
+
+/* INPUTS */
+
+.io-block textarea,
+.io-block pre,
+#fileInput {
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.io-block textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+#minifyBtn,
+#copyBtn,
+.copy-btn {
+  background: var(--bg-secondary) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* UUID */
+
+.uuid-box {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.uuid-box span {
+  color: var(--text-main) !important;
+}
+
+/* HERO VISUAL */
+
+.visual-box {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.mock-window {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 15px 35px rgba(67, 54, 51, 0.10);
+}
+
+.mock-topbar {
+  background: var(--bg-main) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.mock-title {
+  color: var(--text-main) !important;
+}
+
+.mock-code {
+  background: var(--bg-main) !important;
+  color: var(--text-secondary) !important;
+}
+
+.mock-url {
+  color: var(--text-secondary) !important;
+}
+
+.copy-btn:hover {
+  background: var(--bg-secondary) !important;
+}
+
+/* BADGES */
+
+.badge {
+  background: var(--bg-secondary) !important;
+  color: var(--text-main) !important;
+}
+
+/* FILE UPLOAD */
+
+.file-upload-label {
+  color: var(--text-main) !important;
+}
+
+#fileInput::file-selector-button {
+  background: var(--bg-secondary) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* SECRET SCANNER */
+
+.finding-item {
+  background: var(--bg-card) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.finding-code {
+  color: var(--text-secondary) !important;
+}
+
+/* GENERAL CARD */
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(67, 54, 51, 0.10) !important;
+}
+
+
+
+/* PROJECT ATLAS - TOOL CARD REFINEMENT */
+
+.tool-card {
+  background: #FFFFFF !important;
+  border: 1px solid #DECBB7 !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 14px rgba(67, 54, 51, 0.05) !important;
+  transition: all 0.25s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: #8F857D !important;
+  box-shadow: 0 12px 25px rgba(67, 54, 51, 0.10) !important;
+}
+
+.tool-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #DECBB7 !important;
+  color: #433633 !important;
+  border: 1px solid #D1BCA7;
+  border-radius: 12px !important;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.tool-card h3 {
+  color: #433633 !important;
+  font-size: 18px;
+  font-weight: 650;
+  margin-bottom: 10px;
+}
+
+.tool-card p {
+  color: #8F857D !important;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.tool-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F7F0F5 !important;
+  color: #433633 !important;
+  border: 1px solid #DECBB7 !important;
+  border-radius: 8px !important;
+  padding: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.tool-btn:hover {
+  background: #433633 !important;
+  color: #FFFFFF !important;
+}
+
+.tool-card .badge {
+  background: #DECBB7 !important;
+  color: #433633 !important;
+}
+
+
+/* Feature icons */
+
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #433633;
+  font-size: 23px;
+  font-weight: 600;
+  border: 1px solid #DECBB7;
+  background: #DECBB7 !important;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+  .hero {
+    padding: 70px 30px;
+    gap: 30px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tools-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .nav-center {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 50px 20px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-visual {
+    width: 100%;
+  }
+
+  .features {
+    padding: 50px 20px;
+  }
+
+  .features-header h2 {
+    font-size: 30px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tools-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .tool-page {
+    padding: 30px 20px;
+  }
+
+  .uuid-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 1024px){
+
+  .features-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .tools-container{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero{
+    padding:70px 40px;
+    gap:30px;
+  }
+
+}
+
+
+@media (max-width: 768px){
+
+  .navbar{
+    padding:0 24px;
+  }
+
+  .nav-center{
+    gap:16px;
+  }
+
+  .hero{
+    flex-direction:column;
+    padding:60px 24px;
+  }
+
+  .hero-content h1{
+    font-size:38px;
+  }
+
+  .features{
+    padding:60px 24px;
+  }
+
+  .features-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .tools-container{
+    grid-template-columns:repeat(2,1fr);
+    padding:24px;
+  }
+
+}
+
+
+@media (max-width: 500px){
+
+  .navbar{
+    height:auto;
+    padding:16px;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+
+  .nav-center{
+    width:100%;
+    justify-content:center;
+    gap:20px;
+  }
+
+  .nav-right{
+    display:none;
+  }
+
+  .hero-content h1{
+    font-size:32px;
+  }
+
+  .hero-buttons{
+    flex-wrap:wrap;
+  }
+
+  .features-grid,
+  .tools-container{
+    grid-template-columns:1fr;
+  }
+
+  .features-header h2{
+    font-size:30px;
+  }
+
+  .tool-page{
+    padding:30px 20px;
+  }
+
+}
+@media (max-width: 500px){
+
+  .navbar{
+    min-height:80px;
+    height:auto;
+    padding:14px 20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+  }
+
+  .nav-left{
+    width:100%;
+    justify-content:center;
+  }
+
+  .nav-center{
+    display:flex !important;
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:22px;
+  }
+
+  .nav-center a{
+    font-size:13px;
+  }
+
+  .nav-right{
+    display:none;
+  }
+
 }
